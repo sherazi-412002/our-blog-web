@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Img01 from '../../public/logo.jpg';
+import Img01 from '../../public/logo3.png';
 
 
 import { FaFacebook } from 'react-icons/fa6';
@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div>
 
-        <footer className='h-[800px] md:h-[417px] w-full bg-gradient-to-br from-[#00AAA1] to-yellow-600 bg-black flex flex-col md:items-center p-10 md:p-0 justify-between md:justify-around text-white  md:pt-[2%]'>
+        <footer className='h-[800px] md:h-[417px] w-[100%] bg-gradient-to-br from-[#5B4534] to-[#2A5934] bg-black flex flex-col md:items-center p-10 md:p-0 justify-between md:justify-around text-white  md:pt-[2%]'>
 
             <div className='flex flex-col md:flex-row justify-evenly md:justify-around items-center md:items-start gap-20 md:gap-28'>
 
