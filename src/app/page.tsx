@@ -1,16 +1,22 @@
 
 import HeroSection from "@/components/HeroSection";
 import { client } from "@/sanity/lib/client";
+import { PortableTextBlock } from "@portabletext/types";
+import {PortableText} from '@portabletext/react'
 import Image from "next/image";
 import Link from "next/link";
+import {portableTextComponents} from '@/app/blog/[slug]/page';
+
 
 export interface IBlog {
-  id: string; // Use string to match Sanity's `_id` type
+  id: string; 
   title: string;
-  description: string;
+  description: PortableTextBlock[];
   slug: string;
   imageUrl: string;
 }
+
+
 
 
 export const revalidate = 60
@@ -45,9 +51,10 @@ export default async function Home() {
               className="rounded-lg h-52 w-72"
             />
             <h2 className="text-lg font-bold line-clamp-1 text-[#333333]">{blog.title}</h2>
-            <p className="text-[14px] line-clamp-3 text-justify">
-              {blog.description}
-            </p>
+            <div className="line-clamp-3">
+            <PortableText value={blog.description} components={portableTextComponents} />
+            </div>
+            
             <p className="text-lgm text-[#2A5934]">Read More....</p>
 
             </div>
@@ -58,3 +65,4 @@ export default async function Home() {
     </>
   );
 }
+

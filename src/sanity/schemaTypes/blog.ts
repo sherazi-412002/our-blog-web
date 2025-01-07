@@ -1,7 +1,5 @@
 import { defineField, defineType } from "sanity";
 
-
-
 export default defineType({
     name:"blog",
     title:"Blog",
@@ -15,7 +13,9 @@ export default defineType({
         defineField({
             name:"description",
             title:"Description",
-            type:"text",
+            type:"array",
+            of:[{type:"block"}]
+
         }),
         defineField({
             name:"slug",
