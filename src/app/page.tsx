@@ -5,7 +5,9 @@ import { PortableTextBlock } from "@portabletext/types";
 import {PortableText} from '@portabletext/react'
 import Image from "next/image";
 import Link from "next/link";
-import {portableTextComponents} from '@/app/blog/[slug]/page';
+import {portableTextComponents} from '@/components/portableTextComponent';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
 export interface IBlog {
@@ -33,6 +35,7 @@ export default async function Home() {
 
   return (
     <>
+      <Header/>
       <HeroSection />
       <main className="h-full bg-[#FDF5E6] flex flex-col items-center">
         <h2 className="text-center text-[#333333] font-bold text-5xl mt-5">Recent Blogs</h2>
@@ -41,7 +44,7 @@ export default async function Home() {
             <Link href={`/blog/${blog.slug}`} key={blog.id}>
             <div
             key={blog.id} // Use unique identifier for the key
-            className="rounded-lg shadow-lg transition-all w-96 lg:w-72 h-auto p-5  space-y-5 hover:scale-105 active:scale-95 cursor-pointer"
+            className="rounded-lg shadow-lg transition-all w-screen md:w-96  lg:w-72 h-auto p-5  space-y-5 hover:scale-105 active:scale-95 cursor-pointer"
             >
             <Image
               src={blog.imageUrl}
@@ -62,6 +65,7 @@ export default async function Home() {
           ))}
         </div>
       </main>
+      <Footer/>
     </>
   );
 }
